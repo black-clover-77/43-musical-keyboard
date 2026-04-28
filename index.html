@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Harmonic Synth | VishwaNova 2026</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Orbitron:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../shared/mobile.css" />
+    <link rel="stylesheet" href="../shared/experience-kit.css" />
+    <link rel="stylesheet" href="../shared/fx-kit.css" />
+    <link rel="stylesheet" href="../shared/engagement-kit.css" />
+    <link rel="stylesheet" href="../shared/soundkit.css" />
+</head>
+<body>
+    <div id="app">
+        <header>
+            <h1>HARMONIC.SYNTH</h1>
+            <p style="color: #444; font-size: 0.7rem; margin-top: 10px;">POLYPHONIC WEB AUDIO ENGINE</p>
+        </header>
+
+        <div class="keyboard" id="keyboard">
+            <div class="key" data-note="C4"></div>
+            <div class="key black" data-note="C#4"></div>
+            <div class="key" data-note="D4"></div>
+            <div class="key black" data-note="D#4"></div>
+            <div class="key" data-note="E4"></div>
+            <div class="key" data-note="F4"></div>
+            <div class="key black" data-note="F#4"></div>
+            <div class="key" data-note="G4"></div>
+            <div class="key black" data-note="G#4"></div>
+            <div class="key" data-note="A4"></div>
+            <div class="key black" data-note="A#4"></div>
+            <div class="key" data-note="B4"></div>
+            <div class="key" data-note="C5"></div>
+        </div>
+
+        <div class="controls">
+            <div class="knob-container">
+                <div class="knob-label">OSC TYPE</div>
+                <select id="osc-type" style="background:transparent; color:#fff; border:1px solid #333; padding:5px;">
+                    <option value="sine">Sine</option>
+                    <option value="square">Square</option>
+                    <option value="sawtooth">Sawtooth</option>
+                    <option value="triangle">Triangle</option>
+                </select>
+            </div>
+            <div class="knob-container">
+                <div class="knob-label">ATTACK</div>
+                <input type="range" min="0" max="1" step="0.1" value="0.1">
+            </div>
+        </div>
+
+        <button id="audio-toggle">🎵</button>
+    </div>
+
+    <footer class="github-badge">
+        <a href="https://github.com/AkshatRock/weboreel-hackathon" target="_blank">⭐ GitHub</a>
+        <span>VishwaNova 2026</span>
+    </footer>
+
+    <script src="../shared/soundkit.js" defer></script>
+    <script src="../shared/experience-kit.js" defer></script>
+    <script src="../shared/engagement-kit.js" defer></script>
+    <script src="../shared/experience-configs-22-50.js" defer></script>
+    <script src="../shared/fx-kit.js" defer></script>
+    <script src="script.js"></script>
+
+    <script>
+      window.addEventListener("DOMContentLoaded", () => {
+        const parts = location.pathname.split("/").filter(Boolean);
+        const slug = parts[parts.length - 2] || "";
+        const cfg = window.WeboReelsExperienceConfigs22to50?.[slug] || { title: document.title };
+        window.WeboReelsExperienceKit?.init?.(cfg);
+      });
+    </script>
+</body>
+</html>
